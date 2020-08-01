@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var button1: UIButton!
     @IBOutlet weak var button2: UIButton!
@@ -20,37 +20,22 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         updateUI()
-
     }
     
     @IBAction func answerButtonPressed(_ sender: UIButton) {
         let userAnswer = sender.currentTitle!
-        let userGotItRight = storyBrain.checkAnswer(userAnswer)
-        
-        
-        
-        
-        
-        
+        let userGotAnswer = storyBrain.checkAnswer(userAnswer)
+
+        questionNumber = userGotAnswer
+        updateUI()
     }
     
     func updateUI() {
-        //let answerChoice = storyBrain.getA
         questionLabel.text = storyBrain.getQuestionText()
-         
         
-        
-        
+        button1.setTitle(storyBrain.getAnswer1(), for: .normal)
+        button2.setTitle(storyBrain.getAnswer2(), for: .normal)
         
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
 }
 
